@@ -1,5 +1,2 @@
-require "bestsellers/version"
-
-module Bestsellers
-  # Your code goes here...
-end
+require_relative "./bestsellers/version"
+require_relative './bestsellers/cli'
