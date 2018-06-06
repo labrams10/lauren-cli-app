@@ -7,4 +7,6 @@ class Book
     @category = category
     @bio = bio
   end
+
+
 end

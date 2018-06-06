@@ -11,7 +11,7 @@ module Bestsellers
       puts "Welcome to the New York Times Bestsellers! Here are 5 categories to choose from:"
       #Bestsellers::Category.category
 
-      Bestsellers::Scraper.category
+      Bestsellers::Scraper.new.get_categories_with_books
     end
 
     def menu
