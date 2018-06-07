@@ -2,6 +2,7 @@ module Bestsellers
   class CLI
 
     def call
+      Bestsellers::Scraper.get_categories_with_books
       list_categories
       menu
       goodbye
@@ -10,7 +11,9 @@ module Bestsellers
     def list_categories
       puts "Welcome to the New York Times Bestsellers! Here are #{Bestsellers::Category.all.count} categories to choose from:"
 
-      Bestsellers::Scraper.new.get_categories_with_books
+      Bestsellers::Category.all.each.with_index(1) do |category, index|
+        puts "#{index}. #{category.name}"
+      end
     end
 
     def menu
@@ -61,23 +64,6 @@ module Bestsellers
         end
       end
     end
-
-    # def title_menu
-    #   input = nil
-    #   while input != "exit"
-    #     input = gets.strip.downcase
-    #     case input
-    #     when "1"
-    #     puts <<-DOC.gsub /^\s+/, ""
-    #     1. The Outsider
-    #     2. The 17th Suspect
-    #     3. The Fallen
-    #     4. Beach House Reunion
-    #     5. The Cast
-    #     DOC
-    #     end
-    #   end
-    # end
 
     def goodbye
       puts "Check back in soon for more bestsellers!"

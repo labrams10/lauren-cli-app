@@ -21,6 +21,10 @@ class Bestsellers::Category
     self.books
   end
 
+  def add_book(book)
+    self.books << book
+  end
+
   def self.category
     # scrap site
     # iterate thourgh list of categories found and print them
