@@ -3,7 +3,23 @@ require 'open-uri'
 require 'pry'
 
 class Bestsellers::Category
-  attr_accessor :name, :titles, :category
+  attr_accessor :name, :titles, :category, :books
+
+  @@all = []
+
+  def initialize(name)
+    @name = name
+    @@all << self
+    @books = []
+  end
+
+  def self.all
+    @@all
+  end
+
+  def books_by_category
+    self.books
+  end
 
   def self.category
     # scrap site

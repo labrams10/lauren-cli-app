@@ -8,8 +8,7 @@ module Bestsellers
     end
 
     def list_categories
-      puts "Welcome to the New York Times Bestsellers! Here are 5 categories to choose from:"
-      #Bestsellers::Category.category
+      puts "Welcome to the New York Times Bestsellers! Here are #{Bestsellers::Category.all.count} categories to choose from:"
 
       Bestsellers::Scraper.new.get_categories_with_books
     end
