@@ -24,35 +24,15 @@ module Bestsellers
         input = gets.strip.downcase
         case input
         when "1"
-          Bestsellers::Category.find_by_index(1).list_books_by_category
+          Bestsellers::Category.find_by_index(0).list_books_by_category
         when "2"
-        puts "Hardcover Fiction Titles:
-        1. The Outsider
-        2. The Cast
-        3. The 17th Suspect
-        4. The Fallen
-        5. By Invitation Only"
+          Bestsellers::Category.find_by_index(1).list_books_by_category
         when "3"
-        puts "Combined Print & E-Book Nonfiction Titles:
-        1. The Restless Wave
-        2. Facts and Fears
-        3. The Soul of America
-        4. How To Change Your Mind
-        5. Barracoon"
+          Bestsellers::Category.find_by_index(2).list_books_by_category
         when "4"
-        puts "Hardcover Nonfiction Titles:
-        1. The Restless Wave
-        2. The Soul of America
-        3. Facts and Fears
-        4. How To Change Your Mind
-        5. Barracoon"
+         Bestsellers::Category.find_by_index(3).list_books_by_category
         when "5"
-        puts "Paperback Nonfiction Titles:
-        1. Sapiens
-        2. Killers of the Flower Moon
-        3. Hillbilly Elegy
-        4. Just Mercy
-        5. Shoe Dog"
+         Bestsellers::Category.find_by_index(4).list_books_by_category
         when "list"
           list_categories
         when "exit"
