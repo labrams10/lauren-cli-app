@@ -2,6 +2,7 @@ module Bestsellers
   class CLI
 
     def call
+      clear_terminal
       Bestsellers::Scraper.get_categories_with_books
       list_categories
       menu
@@ -19,16 +20,11 @@ module Bestsellers
     def menu
       input = nil
       while input != "exit"
-        puts "Type the number of the category that you would like to see titles from or type list to see the categories again, or type exit:"
+        puts "Type the number of the category that you would like to see titles from, type list to see cateories again, or type exit:"
         input = gets.strip.downcase
         case input
         when "1"
-        puts "Combined Print & E-Book Fiction Titles:
-        1. The Outsider
-        2. The 17th Suspect
-        3. The Fallen
-        4. Beach House Reunion
-        5. The Cast"
+          Bestsellers::Category.find_by_index(1).list_books_by_category
         when "2"
         puts "Hardcover Fiction Titles:
         1. The Outsider
@@ -59,14 +55,21 @@ module Bestsellers
         5. Shoe Dog"
         when "list"
           list_categories
+        when "exit"
+        puts goodbye
         else
-          puts "Not sure what you want, type list or exit:"
+          puts "Not sure what you want, type list or exit"
         end
       end
     end
 
+
     def goodbye
-      puts "Check back in soon for more bestsellers!"
+      "Check back in soon for more bestsellers!"
+    end
+
+    def clear_terminal
+      system "clear"
     end
   end
 end
