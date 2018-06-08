@@ -27,7 +27,7 @@ class Bestsellers::Category
 
   def list_books_by_category
     books_by_category.each.with_index(1) do |book, index|
-      puts "#{index}. #{book.title}"
+      puts "#{index}. #{book.fixed_title}"
     end
   end
 

@@ -16,8 +16,13 @@ class Book
   end
 
   def book_info
-    puts "Title: #{self.title}"
+    puts "----------------"
+    puts "Title: #{self.fixed_title}"
     puts "#{self.author}"
     puts "Description: #{self.bio}"
+  end
+
+  def fixed_title
+    self.title.split(" ").map{ |word| word.downcase.capitalize}.join(" ")
   end
 end

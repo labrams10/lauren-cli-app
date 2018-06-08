@@ -20,38 +20,40 @@ module Bestsellers
     def category_menu
       input = nil
       while input != "exit"
-        puts "Type the number of the category that you would like to see titles from, type list to see cateories again, or type exit:"
+        puts "Type the number of the category that you would like to see titles from, or type exit:"
         input = gets.strip.downcase
         case input
         when "1"
+          page_break
           Bestsellers::Category.find_by_index(0).list_books_by_category
           book_menu(0)
         when "2"
+          page_break
           Bestsellers::Category.find_by_index(1).list_books_by_category
           book_menu(1)
         when "3"
+          page_break
           Bestsellers::Category.find_by_index(2).list_books_by_category
           book_menu(2)
         when "4"
-         Bestsellers::Category.find_by_index(3).list_books_by_category
-         book_menu(3)
+          page_break
+          Bestsellers::Category.find_by_index(3).list_books_by_category
+          book_menu(3)
         when "5"
-         Bestsellers::Category.find_by_index(4).list_books_by_category
-         book_menu(4)
-        when "list"
-          list_categories
+          page_break
+          Bestsellers::Category.find_by_index(4).list_books_by_category
+          book_menu(4)
         when "exit"
-        puts goodbye
+          puts goodbye
         else
-          puts "Not sure what you want, type list or exit"
+          puts "Not sure what you want, please try again"
         end
       end
     end
 
     def book_menu(category_index)
       input = nil
-      while input != "back"
-        puts "To get more info on a book above select its associated number or type back to list books again:"
+        puts "To get more info on a book above, select its associated number:"
         input = gets.strip.downcase
         case input
         when "1"
@@ -64,13 +66,13 @@ module Bestsellers
           Bestsellers::Category.find_by_index(category_index).find_book_by_category_and_index(3).book_info
         when "5"
           Bestsellers::Category.find_by_index(category_index).find_book_by_category_and_index(4).book_info
-        when "back"
-          list_categories
-          category_menu
+        when "exit"
+          puts goodbye
         else
-          puts "Not sure what you want, type back or exit"
+          puts "Not sure what you want, try again"
+          page_break
         end
-      end
+        page_break
     end
 
     def goodbye
@@ -79,6 +81,10 @@ module Bestsellers
 
     def clear_terminal
       system "clear"
+    end
+
+    def page_break
+      puts "-----------------------------------"
     end
   end
 end
