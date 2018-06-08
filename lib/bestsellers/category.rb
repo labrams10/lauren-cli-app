@@ -17,6 +17,10 @@ class Bestsellers::Category
     @@all
   end
 
+  def find_book_by_category_and_index(index)
+    self.books[index]
+  end
+
   def books_by_category
     self.books
   end

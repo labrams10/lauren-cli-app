@@ -15,5 +15,9 @@ class Book
     @@all
   end
 
+  def book_info
+    puts "Title: #{self.title}"
+    puts "#{self.author}"
+    puts "Description: #{self.bio}"
+  end
 end
-
